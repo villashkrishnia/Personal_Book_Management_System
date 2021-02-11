@@ -57,6 +57,39 @@
             box-sizing: border-box;
         }
 
+        .bars {
+            background-color: rgb(0, 0, 0);
+        }
+
+        .bars .fas {
+            position: fixed;
+            top: 0;
+            right: 0;
+            float: right;
+            font-size: 30px;
+            padding: 10px;
+            margin: 0;
+            /* z-index:+1; */
+            color: rgb(252, 252, 252);
+        }
+
+        .bars .fas:hover {
+            font-size: 32px;
+            color: rgb(219, 20, 60);
+            cursor: pointer;
+        }
+
+        .bars .fas:active {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .bars::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
         .main {
             margin: 10%;
             margin-top: 3%;
@@ -120,6 +153,11 @@
             right: 40%;
             margin: 0 auto;
         }
+        .submit:hover {
+            background-color:rgba(0, 0, 0,0.8);
+            color:white;
+            transition:background-color 0.3s, color 0.2s ;
+        }
 
         @media screen and (max-width: 992px) {
             .submit {
@@ -140,6 +178,12 @@
 </head>
 
 <body>
+
+    <!-- bar in header -->
+
+    <div class="bars" id="bars">
+        <a href="{% url 'side_navbar' %}"><i class="fas fa-bars"></i></a>
+    </div>
 
     <div class="main">
         <h1>CONTACT ME</h1>
