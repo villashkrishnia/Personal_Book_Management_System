@@ -17,7 +17,7 @@ def login(request):
             auth_login(request, user)
             return redirect('dashboard')
         else:
-            messages.error(request, 'User OR password is incorrect')
+            messages.error(request, 'Invalid Credentials')
     return render(request, 'accounts/login.html')
 
 

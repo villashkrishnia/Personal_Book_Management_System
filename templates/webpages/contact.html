@@ -1,3 +1,5 @@
+<!--
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,4 +24,167 @@
 {% endif %}
 <p><span><a href="{% url 'register' %}">Sign Up</a></span></p>
 </body>
+</html>
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact_Me</title>
+    <script src="https://kit.fontawesome.com/b4ee48507e.js" crossorigin="anonymous"></script>
+
+    <style>
+        body {
+            font-family: Helvetica, sans-serif;
+            /* color: whitesmoke; */
+            padding: 0px;
+            margin: 0px;
+            color: whitesmoke;
+            background-image: url("{% static 'images/c7.jpg' %}");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-color: rgb(32, 32, 32);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .main {
+            margin: 10%;
+            margin-top: 3%;
+            background-color: rgb(0, 0, 0);
+            padding: 30px;
+            opacity: 0.89;
+        }
+
+        h1 {
+            padding: 0;
+            margin: 0;
+            font-size: 40px;
+        }
+
+        .same {
+            width: 100%;
+            margin: 20px auto;
+            background-color: rgb(32, 32, 32);
+            padding: 25px;
+            /* border-radius: 10px; */
+        }
+
+        .same div a {
+            padding: 10px;
+            font-size: large;
+            color: white;
+        }
+
+        .same div a:hover {
+            color: rgb(4, 150, 194);
+            transition: color 0.3s;
+        }
+
+        .same .mail {
+            text-decoration: none;
+            color: white;
+        }
+
+        .same .mail:hover {
+            color: rgb(4, 150, 194);
+            transition: color 0.3s;
+        }
+
+        h2 {
+            color: rgb(97, 97, 97);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            border: none;
+            background-color: rgb(70, 70, 70);
+            color: rgb(0, 0, 0);
+        }
+
+        .submit {
+            width: 20%;
+            position: relative;
+            left: 40%;
+            right: 40%;
+            margin: 0 auto;
+        }
+
+        @media screen and (max-width: 992px) {
+            .submit {
+                width: 100%;
+                left: 0;
+                right: 0;
+            }
+            .main {
+                margin: 0;
+                padding: initial;
+            }
+            h1 {
+                padding: 10px;
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="main">
+        <h1>CONTACT ME</h1>
+
+        <div class="same">
+            <h2>My Address</h2>
+            <p>
+                Villash, National Institute of Technology Meghalaya Bijini Complex, Laitumkhrah, shillong-793003, Meghalaya, India
+            </p>
+        </div>
+
+        <div class="same">
+            <h2>Profiles</h2>
+            <div>
+                <a href="https://www.instagram.com/me_krishnia_villash"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.youtube.com/channel/UC6tMjuQyUuuWygFKdlt9w5g"><i class="fab fa-youtube"></i></a>
+                <a href="https://www.linkedin.com/in/villash-krishnia-67a27a190"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/villashkrishnia"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <div class="same">
+            <h2>Email Me</h2>
+            <a href="mailto:villashkrishnia@gmail.com" class="mail">villashkrishnia@gmail.com</a>
+        </div>
+
+        <div class="same">
+            <h2>Call Me</h2>
+            <p>+91 9079064124</p>
+        </div>
+
+        <div class="same">
+            <form>
+                <input type="text" name="name" placeholder="Your Name">
+                <input type="email" name="email" placeholder="Your Email">
+                <input type="text" name="subject" placeholder="Subject">
+                <input type="text" name="message" placeholder="Message">
+                <input class="submit" type="submit" value="Send Message">
+
+            </form>
+        </div>
+    </div>
+
+
+
+</body>
+
 </html>
