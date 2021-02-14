@@ -35,7 +35,7 @@ def add_tag(request):
 @login_required(login_url='login')
 def delete_task(request, pk):
      #task=Task.objects.all()
-    task =Task.objects.get(id=pk)
+    task = Task.objects.get(id=pk)
     if request.method == "POST":
         task.delete()
         return redirect('dashboard')

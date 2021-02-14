@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-        }
+       }
 
         * {
             box-sizing: border-box;
@@ -32,7 +32,7 @@
             padding: 10px;
             margin: 0;
             /* z-index:+1; */
-            color: rgb(252, 252, 252);
+            color: rgb(0, 0, 0);
         }
 
         .bars .fas:hover {
@@ -125,12 +125,17 @@
             padding: 2%;
         }
 
+        #handleOverflow{
+            overflow:auto;
+        }
+
         table {
             width: 90%;
             margin: auto;
             margin-bottom: 60px;
             box-shadow: 2px 3px 15px rgb(59, 59, 59);
         }
+
 
         table,
         th,
@@ -298,7 +303,7 @@
 
     <div class="search" id="search">
 
-        <form method="GET" action="">
+        <form action="" method="GET" >
     <tr><th><label for="id_content">Content:</label></th>
         <td><input type="text" name="content" id="id_content" placeholder="Search your content..."></td>
     </tr>
@@ -308,14 +313,15 @@
 
 
     <h1>My Tasks</h1>
+    <div id="handleOverflow">
 <table>
 
     {% if totaltasks %}
      <tr>
             <td style="font-weight: bold;">Task</td>
             <td style="font-weight: bold;">Status</td>
-            <td style="font-weight: bold;">Dead-line</td>
-            <td style="font-weight: bold;">Done-at</td>
+            <td style="font-weight: bold;">Deadline</td>
+            <td style="font-weight: bold;">Completed_at</td>
             <td style="font-weight: bold;">Edit</td>
             <td style="font-weight: bold;">Delete</td>
 
@@ -354,7 +360,7 @@
     </tr>
 
 </table>
-
+</div>
 
     <h1>My Tags</h1>
     <table>
@@ -367,7 +373,7 @@
 
         {% for tag in tags %}
         <tr>
-        <td>    {{ tag }}   </td>
+        <td>    {{ tag.name }}   </td>
         <td>    <a href="{% url 'delete_tag' tag.id %}">DELETE</a>  </td>
         </tr>
         {% endfor %}

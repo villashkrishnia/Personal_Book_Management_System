@@ -3,22 +3,27 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
 
 from tasks_and_tags.models import Tag, Task
-from .forms import ContactForm
+
 from .filters import TaskFilter
+from .models import ContactModel
+
 
 def contact(request):
     if request.method == 'POST':
-        form = ContactForm(data=request.POST)
-        if form.is_valid():
-            # send email
-            return redirect('tasks')
-    else:
-        form = ContactForm()
-    return render(request, 'webpages/contact.html', {'form': form})
+        name = request.POST["name"]
+        email = request.POST["email"]
+        subject = request.POST["subject"]
+        message = request.POST["message"]
+        obj = ContactModel(name=name, email=email, subject=subject, message=message)
+        obj.save()
+        return redirect('dashboard')
+    return render(request, 'webpages/contact.html')
 
 
 @login_required(login_url='login')
 def dashboard(request):
+    #tasks = task.objects.all()
+    #tags = tag.objects.all()
     user = request.user
     tasks = user.task_set.all()
     tags = user.tag_set.all()
