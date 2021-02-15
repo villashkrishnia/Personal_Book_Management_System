@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Tag</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url("{% static 'images/tg7.jpg' %}");
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            width: 40%;
+            margin: 200px auto;
+            color: rgb(255, 255, 255);
+            background-color: rgba(0, 0, 0, 0.8);
+            transition: width 0.4s, background-color 0.2s;
+        }
+
+        .container:hover {
+            width: 45%;
+            background-color: rgba(6, 36, 32, 0.8);
+            transition: width 0.4s, background-color 0.2s;
+        }
+
+        h1 {
+            font-family: cursive;
+            text-align: center;
+            padding: 5px;
+            background-color: rgba(15, 15, 15, 0.8);
+            color: rgb(206, 206, 206);
+        }
+
+        table {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        th {
+            display: none;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        td input {
+            width: 100%;
+            border: none;
+            background-color: rgb(144, 144, 144, 0.5);
+            color: whitesmoke;
+            padding: 5px;
+            font-size: 25px;
+        }
+
+        td input:hover {
+            background-color: rgb(27, 29, 28);
+            transition: background-color 0.3s;
+        }
+
+        @media screen and (max-width:992px) {
+            .container {
+                width: 60%;
+                transition: none;
+            }
+            .container:hover {
+                width: 60%
+            }
+        }
+
+        @media screen and (max-width:600px) {
+            body {
+                background-size: contain;
+            }
+            .container {
+                width: 100%;
+            }
+            .container:hover {
+                width: 100%
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Add new Tag</h1>
+        <form action="" method="POST">
+           {% csrf_token %}
+            <table>
+                <tr>
+                    <th><label for="id_name">Name:</label></th>
+                    <td><input type="text" name="name" maxlength="255" required id="id_name" placeholder="Enter Tag Name"></td>
+                </tr>
+
+                <tr>
+                    <td><input type="submit" name="submit" value="Add Tag"></td>
+                </tr>
+            </table>
+        </form>
+
+    </div>
+
+</body>
+
+</html>

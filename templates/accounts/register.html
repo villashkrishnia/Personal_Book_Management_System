@@ -1,0 +1,160 @@
+<!--
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+</head>
+
+<body>
+    <h1>Sign Up</h1>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+            <tr>
+                <td colspan="2">
+                    <input type="submit" name="submit" value="Sign Up!">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <a href="{% url 'login' %}">Login if you already have an account</a>
+</body>
+
+</html>
+-->
+<!-- ================================================================== -->
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Sign Up</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url({% static "/images/sp5.jpg" %});
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            font-family: Helvetica, sans-serif;
+            color: whitesmoke;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        .main {
+            width: 80%;
+            margin: 2% auto;
+            background-color: rgb(0, 0, 0, 0.8);
+            padding: 2%;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th,
+        td {
+            padding: 2%;
+            text-align: left;
+        }
+
+        tr {
+            background-color: rgba(34, 34, 34, 0.5);
+        }
+
+        tr:hover {
+            background-color: rgb(0, 0, 0, 0.8);
+        }
+
+        a {
+            display: block;
+            width: 25%;
+            margin: auto;
+            text-align: center;
+            text-decoration: none;
+            color: whitesmoke;
+        }
+
+        a:hover {
+            color: rgb(0, 127, 212);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+
+        <!--
+
+        <h1>Sign Up</h1>
+
+        <form action="" method="POST">
+            <input type="hidden" name="csrfmiddlewaretoken" value="zzFzJyxApssKZrDNWSjRyHOsd1jvHjdaFuxeH5obTeEQThCwbGlXTbZavGS4aSkC">
+            <table>
+                <tr>
+                    <th><label for="id_username">Username:</label></th>
+                    <td><input type="text" name="username" maxlength="150" autofocus required id="id_username"><br><span class="helptext">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</span>
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="id_email">Email address:</label></th>
+                    <td><input type="email" name="email" maxlength="254" id="id_email"></td>
+                </tr>
+                <tr>
+                    <th><label for="id_password1">Password:</label></th>
+                    <td><input type="password" name="password1" autocomplete="new-password" required id="id_password1"><br><span class="helptext">
+                        <ul>
+                            <li>Your password can’t be too similar to your other personal information.</li>
+                            <li>Your password must contain at least 8 characters.</li>
+                            <li>Your password can’t be a commonly used password.</li>
+                            <li>Your password can’t be entirely numeric.</li>
+                        </ul>
+                    </span></td>
+                </tr>
+                <tr>
+                    <th><label for="id_password2">Password confirmation:</label></th>
+                    <td><input type="password" name="password2" autocomplete="new-password" required id="id_password2"><br><span class="helptext">Enter the same password as before, for
+                        verification.</span></td>
+                </tr>
+
+
+
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" name="submit" value="Sign Up!">
+                    </td>
+                </tr>
+            </table>
+        </form>
+        <a href="/login/">Login if you already have an account</a>
+
+        -->
+
+        <h1>Sign Up</h1>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+            <tr>
+                <td colspan="2">
+                    <input type="submit" name="submit" value="Sign Up!">
+                </td>
+            </tr>
+        </table>
+    </form>
+    <a href="{% url 'login' %}">Login if you already have an account</a>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://kit.fontawesome.com/b4ee48507e.js" crossorigin="anonymous"></script>
+
+    <title>Todo App</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+       }
+
+        * {
+            box-sizing: border-box;
+        }
+        /* bar in header*/
+
+        .bars {
+            background-color: rgb(0, 0, 0);
+        }
+
+        .bars .fas {
+            position: fixed;
+            top: 0;
+            right: 0;
+            float: right;
+            font-size: 30px;
+            padding: 10px;
+            margin: 0;
+            /* z-index:+1; */
+            color: rgb(0, 0, 0);
+        }
+
+        .bars .fas:hover {
+            font-size: 32px;
+            color: rgb(219, 20, 60);
+            cursor: pointer;
+        }
+
+        .bars .fas:active {
+            font-size: 30px;
+            cursor: pointer;
+        }
+
+        .bars::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+        /* header or navbar */
+
+        .header {
+            background-color: rgba(200, 200, 200, 0.7);
+            font-size: 40px;
+            padding: 3%;
+            padding-bottom: 0;
+            margin: 0;
+        }
+
+        #time {
+            margin: 0;
+            text-align: right;
+        }
+
+        .sticky_nav {
+            margin: 0;
+            display: flex;
+            flex-wrap: wrap;
+            background-color: rgb(51, 158, 153);
+        }
+
+        .sticky_nav a {
+            text-decoration: none;
+            display: block;
+            color: black;
+            padding: 20px;
+            font-size: 25px;
+        }
+
+        .sticky_nav a:hover {
+            color: white;
+            background-color: rgb(0, 0, 0);
+            font-size: 28px;
+            transition: color 0.5s, background-color 0.5s, font-size 0.5s;
+        }
+
+        .search {
+            padding: 1%;
+        }
+
+        .search form {
+            text-align: center;
+        }
+
+        .search form input[type="text"] {
+            padding: 1%;
+            width: 75%;
+            font-size: large;
+            box-shadow: 0.5px 0.5px 10px black;
+        }
+
+        .search form input[type="submit"] {
+            padding: 1%;
+            width: 15%;
+            font-size: large;
+            box-shadow: 2px 3px 10px black;
+        }
+
+        .search form input[type="submit"]:hover {
+            background-color: rgb(161, 161, 161);
+            box-shadow: 2px 3px 10px black;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search form label {
+            display: none;
+        }
+
+        h1 {
+            padding: 2%;
+        }
+
+        #handleOverflow{
+            overflow:auto;
+        }
+
+        table {
+            width: 90%;
+            margin: auto;
+            margin-bottom: 60px;
+            box-shadow: 2px 3px 15px rgb(59, 59, 59);
+        }
+
+
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: left;
+            padding: 1%;
+            font-size: 20px;
+            background-color: rgb(245, 245, 245);
+        }
+
+        table th[colspan="6"],
+        th[colspan="2"] {
+            text-align: center;
+            background-color: rgb(224, 224, 224);
+        }
+
+        table th[colspan="6"]:hover,
+        th[colspan="2"]:hover {
+            background-color: rgb(190, 189, 189);
+            transition: background-color 0.4s;
+        }
+
+        table th[colspan="6"] a,
+        th[colspan="2"] a {
+            display: block;
+            color: black;
+            font-size: 25px;
+            text-decoration: none;
+        }
+
+        footer {
+            /* display:block; */
+            background-color: gray;
+            margin: 0;
+            text-align: center;
+            padding: 4px;
+        }
+
+        table td a {
+            text-decoration: none;
+            padding: 5px;
+            /* background-color: rgb(192, 192, 192); */
+            box-shadow: 1px 1px 5px rgb(59, 59, 59);
+            color: black;
+        }
+
+        table td a:hover {
+            background-color: rgb(192, 192, 192);
+            box-shadow: 1px 1px 5px rgb(185, 185, 185);
+        }
+
+        form {
+            text-align: center;
+        }
+
+        form input {
+            cursor: pointer;
+            font-size: large;
+            padding: 5px;
+            box-shadow: 1px 1px 5px rgb(59, 59, 59);
+        }
+
+        form input:hover {
+            background-color: rgb(192, 192, 192);
+        }
+        /* @media (max-width:900px) {
+            .header {
+                width: 100%;
+            }
+            #time {
+                text-align: left;
+            }
+            .sticky_nav {
+                flex-direction: column;
+            }
+            .sticky_nav a {
+                width: 100%;
+                padding: initial;
+                font-size: initial;
+            }
+        } */
+
+        @media (max-width:600px) {
+            .header {
+                font-size: 30px;
+            }
+            #time {
+                font-size: 20px;
+                text-align: left;
+            }
+            .sticky_nav {
+                flex-direction: column;
+                text-align: center;
+            }
+            .sticky_nav a {
+                font-size: 25px;
+                padding: 10px;
+            }
+            .sticky_nav a:hover {
+                font-size: 25px;
+            }
+            table {
+                width: 100%;
+            }
+            form input {
+                font-size: initial;
+                padding: initial;
+            }
+            table td a {
+                padding: initial;
+            }
+            .search {
+                padding: 10px 0 10px 0;
+            }
+            .search form input[type="text"] {
+                padding: 1%;
+                width: 65%;
+                font-size: large;
+                box-shadow: 0.5px 0.5px 10px black;
+            }
+            .search form input[type="submit"] {
+                padding: 1%;
+                width: 25%;
+                font-size: large;
+                box-shadow: 2px 3px 10px black;
+            }
+            .search form input[type="submit"]:hover {
+                background-color: rgb(161, 161, 161);
+                box-shadow: 2px 3px 10px black;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!-- bar in header -->
+
+    <div class="bars" id="bars">
+        <a href="{% url 'side_navbar' %}"><i class="fas fa-bars"></i></a>
+    </div>
+
+    <!-- header -->
+       <div class="header">
+        <p>Welcome, {{ request.user }} <p>
+        <p id="time"></p>
+    </div>
+
+
+    <!-- Top Navigation bar -->
+    <div class="sticky_nav">
+
+        <a href="{% url 'home' %}">Home</a>
+        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'contact' %}">Contact</a>
+        <a href="">Dashboard</a>
+        <!-- <a href="#About">About</a> -->
+    </div>
+
+
+    <div class="search" id="search">
+
+        <form action="" method="GET" >
+    <tr><th><label for="id_content">Content:</label></th>
+        <td><input type="text" name="content" id="id_content" placeholder="Search your content..."></td>
+    </tr>
+        <input type="submit" value="search">
+    </form>
+    </div>
+
+
+    <h1>My Tasks</h1>
+    <div id="handleOverflow">
+<table>
+
+    {% if totaltasks %}
+     <tr>
+            <td style="font-weight: bold;">Task</td>
+            <td style="font-weight: bold;">Status</td>
+            <td style="font-weight: bold;">Deadline</td>
+            <td style="font-weight: bold;">Completed_at</td>
+            <td style="font-weight: bold;">Edit</td>
+            <td style="font-weight: bold;">Delete</td>
+
+     </tr>
+     {% endif%}
+
+        {% for task in tasks %}
+       <tr>
+      <td> {{task.content}}</td>
+     <td>
+           {% if task.status == 'PE' %}
+                <form action="{% url 'mark_complete' task.id %}" method="GET">
+                {%csrf_token%}
+                    <input type="submit" value="Pending" name="submit">
+                </form>
+            {%else%}
+               <form action="{% url 'mark_pending' task.id %}" method="GET">
+               {%csrf_token%}
+               <input type="submit" value="Completed" name="submit"></form>
+            {% endif%}
+     </td>
+    <td>{{task.deadline}}</td>
+    <td>{{task.completed_at}} </td>
+    <td> <a href="{% url 'edit_task' task.id %}">EDIT</a></td>
+    <td><a href="{% url 'delete_task' task.id %}">DELETE</a></td>
+        </tr>
+{% endfor %}
+    {% if totaltasks %}
+    <tr>
+        <td colspan="3">Total Tasks :{{totaltasks}}</td>
+        <td colspan="3">Completed Tasks :{{completedtasks}}</td>
+    </tr>
+    {% endif%}
+    <tr>
+        <th colspan="6">    <a href="{% url 'add_task' %}">Add a new Task</a>   </th>
+    </tr>
+
+</table>
+</div>
+
+    <h1>My Tags</h1>
+    <table>
+        {% if totaltags %}
+        <tr>
+            <th>Tag Name</th>
+            <th>Delete Tag</th>
+        </tr>
+        {% endif %}
+
+        {% for tag in tags %}
+        <tr>
+        <td>    {{ tag.name }}   </td>
+        <td>    <a href="{% url 'delete_tag' tag.id %}">DELETE</a>  </td>
+        </tr>
+        {% endfor %}
+        <tr>
+            <th colspan="2"><a href="{% url 'add_tag' %}">Add a new Tag</a></th>
+        </tr>
+
+    </table>
+<footer>
+    <h3>&copy 2021 All Rights Reserved.</h3>
+</footer>
+
+
+
+    <script>
+        var a;
+        var date;
+        var time;
+        setInterval(() => {
+            a = new Date();
+            date = a.toLocaleDateString();
+            time = a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
+            document.getElementById('time').innerHTML = time + " on " + date;
+        }, 1000);
+
+
+    </script>
+</body>
+
+</html>
+
+
+
+
+
+
+
