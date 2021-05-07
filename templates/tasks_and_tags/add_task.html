@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Task</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url("{% static 'images/tg6.jpg' %}");
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        .container {
+            width: 60%;
+            margin: 60px auto;
+            color: rgb(255, 255, 255);
+            background-color: rgba(0, 0, 0, 0.8);
+            transition: width 0.4s, background-color 0.2s;
+        }
+
+        .container:hover {
+            width: 63%;
+            background-color: rgba(6, 36, 32, 0.8);
+            transition: width 0.4s, background-color 0.2s;
+        }
+
+        h1 {
+            font-family: cursive;
+            text-align: center;
+            padding: 5px;
+            background-color: rgba(15, 15, 15, 0.8);
+            color: rgb(206, 206, 206);
+        }
+
+        table {
+            width: 90%;
+            margin: auto;
+            padding: 20px;
+        }
+
+        td {
+            padding: 5px;
+        }
+
+        td textarea {
+            width: 99%;
+            height: 100px;
+            border: none;
+            background-color: rgb(144, 144, 144, 0.5);
+            color: whitesmoke;
+            padding: 5px;
+            font-size: 25px;
+        }
+
+        td textarea:hover {
+            background-color: rgb(27, 29, 28);
+            transition: background-color 0.3s;
+        }
+
+        td input {
+            width: 100%;
+            border: none;
+            background-color: rgb(144, 144, 144, 0.5);
+            color: whitesmoke;
+            padding: 5px;
+            font-size: 25px;
+        }
+
+        td input:hover {
+            background-color: rgb(27, 29, 28);
+            transition: background-color 0.3s;
+        }
+
+        td select {
+            width: 50%;
+            border: none;
+            background-color: rgb(144, 144, 144, 0.5);
+            color: whitesmoke;
+            padding: 5px;
+            font-size: 25px;
+        }
+
+        td select:hover {
+            background-color: rgb(27, 29, 28);
+            transition: background-color 0.3s;
+        }
+
+        td select option {
+            width: 100%;
+            color: whitesmoke;
+            padding: 5px;
+            font-size: 25px;
+        }
+
+        td select option:hover {
+            background-color: rgba(3, 3, 3, 0.7);
+            transition: background-color 0.5s, color 0.2s;
+        }
+
+        @media screen and (max-width:600px) {
+            .container {
+                width: initial;
+            }
+            .container:hover {
+                width: 100%
+            }
+            table {
+                width: 100%;
+            }
+            td textarea {
+                padding: initial;
+                font-size: initial;
+            }
+            td input {
+                padding: initial;
+                font-size: initial;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Add new Task</h1>
+        <form action="" method="POST">
+           {% csrf_token %}
+            <table>
+                {{ form.as_table }}
+                <tr>
+                   <td colspan="2"><input type="submit" name="submit" value="Add Task"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+</body>
+
+</html>
